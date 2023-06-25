@@ -1,0 +1,10 @@
+*.pyc
+__pycache__/
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+*~
+/.venv/
