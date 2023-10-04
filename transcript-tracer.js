@@ -328,10 +328,11 @@ function parseVttToWordTimings(vttContent) {
         cueIdentifier += line;
       } else {
         // Cue payload (may be multiple lines)
-        cuePayload += line;
-        var cueWords = line.split(/\s/)
+        var adjustedLine = line.replace(/(<\d*:?\d+:\d+\.\d+>)\s/g, ' $1').replace(/(<\d*:?\d+:\d+\.\d+>)(<\d*:?\d+:\d+\.\d+>)/g, '$1 $2');
+        cuePayload += adjustedLine;
+        var cueWords = adjustedLine.split(/\s/)
         for (let word of cueWords) {
-          var matches = Array.from(word.matchAll(/(^<\d*:?\d+:\d+\.\d+>)?(.+$)/g));
+          var matches = Array.from(word.matchAll(/(^<\d*:?\d+:\d+\.\d+>)?(.*$)/g));
           if (matches.length == 1 && matches[0][1] != null) {
             match = matches[0];
             wordStartSeconds = convertVttTimestampToSeconds(match[1].replace('<', '').replace('>', ''));
