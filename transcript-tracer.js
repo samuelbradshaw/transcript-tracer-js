@@ -199,7 +199,7 @@ function linkTranscripts(mediaPlayer) {
     // For a given element, find the first parent element containing relevant children
     function findRelevantParent(startingElement, endingElement, childSelector, relevantChildSelector) {
       var currentElement = startingElement;
-      while (currentElement != endingElement) {
+      while (currentElement && currentElement != endingElement) {
         var currentElement = currentElement.parentElement;
         var children = currentElement.querySelectorAll(childSelector);
         var relevantChildren = document.querySelectorAll(relevantChildSelector);
