@@ -332,7 +332,7 @@ function parseVttToWordTimings(vttContent) {
         cuePayload += adjustedLine;
         var cueWords = adjustedLine.split(/\s/)
         for (let word of cueWords) {
-          var matches = Array.from(word.matchAll(/(^<\d*:?\d+:\d+\.\d+>)?(.*$)/g));
+          var matches = Array.from(word.matchAll(/(^<\d*:?\d+:\d+\.\d+>)?(.+$)/g));
           if (matches.length == 1 && matches[0][1] != null) {
             match = matches[0];
             wordStartSeconds = convertVttTimestampToSeconds(match[1].replace('<', '').replace('>', ''));
