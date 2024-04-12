@@ -438,6 +438,7 @@ function ttTimeUpdate(e) {
 
 // Clear highlighted words in transcript
 function clearHighlightedWords(transcript) {
+  if (!transcript) return;
   var ttHighlightedElements = transcript.querySelectorAll('[class*="tt-current"], [class*="tt-previous"]');
   for (const element of ttHighlightedElements) {
     element.classList.remove('tt-current-block', 'tt-current-block-container', 'tt-current-phrase', 'tt-current-phrase-container', 'tt-current-word', 'tt-previous-word');

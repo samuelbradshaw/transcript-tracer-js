@@ -20,11 +20,11 @@ The fastest way to get started is to download the file `transcript-tracer.js` to
   <body>
     <h1>One Small Step</h1>
     
-    <audio preload="metadata" src="https://www.nasa.gov/62284main_onesmall2.wav" controls>
-      <track kind="metadata" src="http://samuelbradshaw.github.io/transcript-tracer-js/examples/one-small-step.vtt">
+    <audio preload="metadata" src="https://www.nasa.gov/wp-content/uploads/2015/01/590331main_ringtone_smallStep.mp3" controls>
+      <track kind="metadata" src="https://samuelbradshaw.github.io/transcript-tracer-js/examples/one-small-step.vtt">
     </audio>
     
-    <div class="tt-transcript" data-tt-media-urls="https://www.nasa.gov/62284main_onesmall2.wav">
+    <div class="tt-transcript" data-tt-media-urls="https://www.nasa.gov/wp-content/uploads/2015/01/590331main_ringtone_smallStep.mp3">
       <p>OK, I’m going to step off the LM now.</p>
       <p>That’s one small step for a man, one giant leap for mankind.</p>
     </div>
