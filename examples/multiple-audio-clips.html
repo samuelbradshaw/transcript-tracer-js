@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Multiple Audio Clips</title>
+    <style>
+      .tt-current-word { font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <h1>Multiple Audio Clips</h1>
+    
+    <!-- Audio examples from http://study.aitech.ac.jp via https://www.manythings.org/audio/sentences/ -->
+    
+    <!-- First audio clip and transcript -->
+    <audio preload="metadata" src="http://study.aitech.ac.jp/tat/70050.mp3" controls>
+      <track kind="metadata" src="https://samuelbradshaw.github.io/transcript-tracer-js/examples/do-you-play-soccer.vtt">
+    </audio>
+    <div class="tt-transcript" data-tt-media-urls="http://study.aitech.ac.jp/tat/70050.mp3">
+      <p>Do you play soccer?</p>
+    </div>
+    
+    <!-- Second audio clip and transcript -->
+    <audio preload="metadata" src="http://study.aitech.ac.jp/tat/382917.mp3" controls>
+      <track kind="metadata" src="https://samuelbradshaw.github.io/transcript-tracer-js/examples/i-play-the-piano.vtt">
+    </audio>
+    <div class="tt-transcript" data-tt-media-urls="http://study.aitech.ac.jp/tat/382917.mp3">
+      <p>I play the piano.</p>
+    </div>
+    
+    <script src="../transcript-tracer.js"></script>
+    <script>
+      loadTranscriptTracer();
+    </script>    
+  </body>
+</html>

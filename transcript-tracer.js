@@ -101,10 +101,16 @@ function loadTranscriptTracer(options=null) {
           ttActivePlayer.removeEventListener('timeupdate', ttTimeUpdate);
         }
         ttActivePlayer = e.currentTarget;
+        if (ttCurrentTranscript) clearHighlightedWords(ttCurrentTranscript);
+        if (ttCurrentEvent) ttCurrentEvent = null;
       }
       ttActivePlayer.addEventListener('timeupdate', ttTimeUpdate);
       var currentTranscript = ttTranscripts[ttLinkedDataByMediaUrl[ttActivePlayer.dataset.ttLinkedMediaUrl].transcriptIndex];
       currentTranscript.dataset.ttCurrentMediaUrl = ttActivePlayer.dataset.ttLinkedMediaUrl;
+    });
+    mediaPlayer.addEventListener('ended', function(e) {
+      if (ttCurrentTranscript) clearHighlightedWords(ttCurrentTranscript);
+      if (ttCurrentEvent) ttCurrentEvent = null;
     });
   }
 }
@@ -375,7 +381,7 @@ function ttTimeUpdate(e) {
   var ttData = ttLinkedDataByMediaUrl[ttActivePlayer.dataset.ttLinkedMediaUrl];
   
   // Make sure the correct transcript is selected
-  if (!ttCurrentTranscript || !ttCurrentTranscript.dataset.ttTranscript == ttData.transcriptIndex) {
+  if (!ttCurrentTranscript || ttCurrentTranscript.dataset.ttTranscript != ttData.transcriptIndex) {
     ttCurrentTranscript = document.querySelector(`[data-tt-transcript="${ttData.transcriptIndex}"]`);
   }
   
